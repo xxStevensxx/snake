@@ -60,7 +60,7 @@ namespace SceneSys
         {
             DrawText("Bonjour je suis le GamePlay", 50, GetScreenHeight() / 2, 35, Color.RayWhite);
 
-            grid.Draw();
+            //grid.Draw();
             snake.Draw();
             DrawText(mousePos.ToString(), 10, 10, 50, Color.SkyBlue);
 

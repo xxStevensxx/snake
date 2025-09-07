@@ -1,11 +1,10 @@
 ﻿namespace SceneSys.Interfaces
 {
-    interface IGui<T>
+    interface IGui<T> : IGameLoop
     {
-
-        void IsClicked() {}
+        bool IsClicked() { return false; } 
+        bool IsHover() { return false; }
         void Quit() {}
-        void IsHover() {}
-        void AddElement(T element) {}
+        void AddButton(T element) {}
     }
 }
