@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "R19Dq7gb7PU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Stevens\\OneDrive\\Bureau\\Gaming_Campus\\Projet_2\\Snake\\ConsoleApp1\\ConsoleApp1\\SceneSys.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Stevens\\.nuget\\packages\\raylib-cs\\7.0.1\\raylib-cs.7.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
