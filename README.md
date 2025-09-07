@@ -4,5 +4,5 @@ TODO :  * Collider
         * Bonus / Malus
         * Polish systeme de Scene
 
-        Sera fais apres le delai mais avant la soutenance
+        Cela sera fait après le délai, mais avant la soutenance. La documentation également.
         
