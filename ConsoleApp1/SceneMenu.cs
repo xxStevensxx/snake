@@ -19,9 +19,9 @@ namespace SceneSys
         public SceneMenu()
         {
 
-            playButton = new Button { Rect = new Rectangle(10, 40, 200, 40), Txt = "Play", Clr = Color.Yellow };
-            optionButton = new Button { Rect = new Rectangle(10, 90, 200, 40), Txt = "Options", Clr = Color.Blue }; 
-            quitButton = new Button { Rect = new Rectangle(10, 140, 200, 40), Txt = "Quitter", Clr = Color.Green};
+            playButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100),((GetScreenHeight() / 2) - 20), 200, 40), Txt = "Play", Clr = Color.Magenta };
+            optionButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100), ((GetScreenHeight() / 2) - 20) + 45, 200, 40), Txt = "Options", Clr = Color.Magenta }; 
+            quitButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100), ((GetScreenHeight() / 2) - 20) + 90, 200, 40), Txt = "Quitter", Clr = Color.Magenta};
 
             buttonsList.AddButton((Button)playButton);
             buttonsList.AddButton((Button)optionButton);
@@ -32,7 +32,7 @@ namespace SceneSys
         public void Draw() {
 
             buttonsList.Draw();
-            //DrawText("Bonjour je suis le Menu ", 50, GetScreenHeight() / 2, 35, Color.RayWhite);
+            DrawText("Snaaaaaaaaaaaaaake SSSSS", GetScreenWidth() / 2, 10, 35, Color.Magenta);
 
         }
 
@@ -61,22 +61,36 @@ namespace SceneSys
             buttonsList.Update();
 
             if (playButton.IsClicked()) {
-
+                
                 GameState.Instance.ChangeScene(EnumType.Scene.GamePlay);    
             }
 
-            if (IsKeyPressed(KeyboardKey.G)) {
 
-                GameState.Instance.ChangeScene(EnumType.Scene.GamePlay);
-
-            }
-
-            if (IsKeyPressed(KeyboardKey.O))
+            if (optionButton.IsClicked())
             {
 
                 GameState.Instance.ChangeScene(EnumType.Scene.Option);
-
             }
+
+
+            //if (quitButton.IsClicked())
+            //{
+
+            //    GameState.Instance.ChangeScene(EnumType.Scene.Menu);
+            //}
+
+            //if (IsKeyPressed(KeyboardKey.G)) {
+
+            //    GameState.Instance.ChangeScene(EnumType.Scene.GamePlay);
+
+            //}
+
+            //if (IsKeyPressed(KeyboardKey.O))
+            //{
+
+            //    GameState.Instance.ChangeScene(EnumType.Scene.Option);
+
+            //}
         }
         
     }

@@ -53,14 +53,14 @@ namespace SceneSys
         public void Update()
         {
             gameState.Update();
-            sceneGamePlay.Update();
+            //sceneGamePlay.Update();
 
         }
 
         public void Draw()
         {
             gameState.Draw();
-            sceneGamePlay.Draw();
+            //sceneGamePlay.Draw();
 
         }
 

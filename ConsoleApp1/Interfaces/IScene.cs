@@ -14,6 +14,7 @@ namespace SceneSys.Interfaces
         void Show() {}
         void Hide() {}
         void Close() {}
+        void IsActive() {}
 
     }
 }

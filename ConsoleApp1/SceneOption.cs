@@ -14,13 +14,12 @@ namespace SceneSys
 
         public void Draw()
         {
-            DrawText("Voici les options", 50, GetScreenHeight() / 2, 35, Color.RayWhite);
 
         }
 
         public void Show()
         {
-
+            DrawText($"Bonjour je suis le {EnumType.Scene.Option}", 50, GetScreenHeight() / 2, 35, Color.Magenta);
             Console.WriteLine($"Show scene{EnumType.Scene.Option}");
 
         }
@@ -41,12 +40,12 @@ namespace SceneSys
         }
         public void Update()
         {
-            if (IsKeyPressed(KeyboardKey.Escape))
-            {
-                GameState.Instance.ChangeScene(EnumType.Scene.Menu);
-                Name = EnumType.Scene.Menu.ToString();
-                Console.WriteLine($"name: {Name}");
-            }
+            //if (IsKeyPressed(KeyboardKey.Escape))
+            //{
+            //    GameState.Instance.ChangeScene(EnumType.Scene.Menu);
+            //    Name = EnumType.Scene.Menu.ToString();
+            //    Console.WriteLine($"name: {Name}");
+            //}
         }
     }
 }

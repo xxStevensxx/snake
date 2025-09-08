@@ -40,15 +40,18 @@ namespace SceneSys
             if (currentScene != null) {
 
                 currentScene.Hide(); 
+                
 
             }
             if (scenes.ContainsKey(enumId))
             {
                 scenes[enumId].Show();
                 currentScene = scenes[enumId];
-                 
+                
+
                 Debug.WriteLine($"current scene {enumId}");
                 Debug.WriteLine($"Changement de Scene: {enumId} ");
+                
             }
             else
             {
