@@ -24,7 +24,7 @@ namespace SceneSys
             quitButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100), ((GetScreenHeight() / 2) - 20) + 90, 200, 40), Txt = "Quitter", Clr = Color.Magenta};
 
             buttonsList.AddButton((Button)playButton);
-            buttonsList.AddButton((Button)optionButton);
+            //buttonsList.AddButton((Button)optionButton);
             buttonsList.AddButton((Button)quitButton);
 
         }
@@ -72,25 +72,14 @@ namespace SceneSys
                 GameState.Instance.ChangeScene(EnumType.Scene.Option);
             }
 
+            if (quitButton.IsClicked())
+            {
 
-            //if (quitButton.IsClicked())
-            //{
+                CloseWindow(); 
+                Environment.Exit(0);
 
-            //    GameState.Instance.ChangeScene(EnumType.Scene.Menu);
-            //}
+            }
 
-            //if (IsKeyPressed(KeyboardKey.G)) {
-
-            //    GameState.Instance.ChangeScene(EnumType.Scene.GamePlay);
-
-            //}
-
-            //if (IsKeyPressed(KeyboardKey.O))
-            //{
-
-            //    GameState.Instance.ChangeScene(EnumType.Scene.Option);
-
-            //}
         }
         
     }

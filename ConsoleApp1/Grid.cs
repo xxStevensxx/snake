@@ -65,7 +65,7 @@ namespace SceneSys
                     var (x, y) = CellToScreen(r, c);
 
                     DrawRectangleLines(x, y, cellW, cellH, Color.Magenta);
-                    DrawText($"posX: {r}, posY: {c}", x, y, 3, Color.Gold);
+                    //DrawText($"posX: {r}, posY: {c}", x, y, 3, Color.Gold);
                     //DrawText($"X pix: {x}, Y pix: {y}", x, y + 15, 3, Color.Gold);
 
                 }

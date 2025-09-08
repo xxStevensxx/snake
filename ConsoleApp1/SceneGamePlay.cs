@@ -48,12 +48,6 @@ namespace SceneSys
             //mousePos = GetMousePosition();
             snake.Update();
 
-            //if (IsKeyPressed(KeyboardKey.M)) {
-
-            //    GameState.Instance.ChangeScene(EnumType.Scene.Menu);
-
-            //}
-
         }
 
         public void Draw()
