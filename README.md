@@ -1,5 +1,5 @@
-* Gameplay
-Snake.cs
+🎮 Gameplay
+* Snake.cs
 
 Snake : représente le joueur.
 Le corps est géré avec une Queue<(int x, int y)>.
@@ -12,7 +12,7 @@ AddSegment() / DelSegment() : ajoute ou enlève un segment.
 
 Draw() : dessine chaque segment, la tête est en vert clair.
 
-Food.cs
+*Food.cs
 
 Food : objet que le serpent peut manger.
 Deux types possibles :
@@ -27,7 +27,7 @@ resPawnFood() : génère une nouvelle position et un nouveau type.
 
 Draw() : dessine la nourriture en fonction de son type.
 
-Collider.cs
+* Collider.cs
 
 Collider : gère toutes les collisions.
 
@@ -37,7 +37,7 @@ ItSelfCollider : si le serpent se mord lui-même → GameOver.
 
 FoodCollider : si le serpent mange → ajoute des points, un segment, replace la nourriture et déclenche Animator.
 
-Score.cs
+* Score.cs
 
 Score (singleton) : stocke et affiche le score.
 
@@ -45,8 +45,8 @@ Score (singleton) : stocke et affiche le score.
 
 +20 points si nourriture venimeuse.
 
-* UI et Scènes
-SceneMenu.cs
+UI et Scènes
+* SceneMenu.cs
 
 SceneMenu : scène de menu avec des boutons.
 
@@ -60,7 +60,7 @@ SceneOption : scène d’options encore vide.
 
 Affiche uniquement un texte : “Bonjour je suis Option”.
 
-SceneGameOver.cs
+* SceneGameOver.cs
 
 SceneGameOver : scène affichée quand la partie est perdue.
 
@@ -70,7 +70,7 @@ Boutons : Restart, Menu, Quitter.
 
 Les clics permettent de : redémarrer le jeu, revenir au menu ou quitter.
 
-Button.cs
+* Button.cs
 
 Button : représente un bouton cliquable. Contient : position (Rectangle), texte, couleur, état.
 
@@ -80,8 +80,8 @@ Update() : détecte clics et survols.
 
 Draw() : dessine les boutons avec effet hover.
 
-* Rendu et Effets
-Animator.cs
+Rendu et Effets
+* Animator.cs
 
 Animator (singleton) : gère la caméra (Camera2D).
 
@@ -89,8 +89,8 @@ Effet actuel : Shake (tremblement via ShakeTimer()).
 
 Extension prévue : mode Drunk (rotation 180°, commandes inversées, shake renforcé).
 
-* Grille et Constantes
-Grid.cs
+Grille et Constantes
+* Grid.cs
 
 Grid (singleton) : définit et dessine la grille (12x8 cases de 90px espacées de 5px).
 
@@ -98,7 +98,7 @@ CellToScreen() : convertit une cellule en coordonnées écran.
 
 Draw() : dessine la grille.
 
-EnumType.cs
+* EnumType.cs
 
 EnumType : contient les énumérations du jeu.
 
@@ -108,7 +108,7 @@ GridValue : Empty, Snake, Food, Outside.
 
 FoodType : Normal, Venimous.
 
-GameConst.cs
+* GameConst.cs
 
 GameConst : constantes pour l’UI.
 
