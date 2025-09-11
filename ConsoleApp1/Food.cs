@@ -40,6 +40,11 @@ namespace SceneSys
             return (posX, posY);
         }
 
+        public EnumType.FoodType GetFoodType(Food food)
+        {
+            return food.type;
+        }
+
 
         public void resPawnFood() 
         {

@@ -41,6 +41,7 @@ namespace SceneSys
         }
 
         public void Restart() {
+            Score.Instance.Restart();
             Load();
         }
 
@@ -67,6 +68,7 @@ namespace SceneSys
         {
 
             Camera2D cam2D = Animator.Instance.GetCam();   
+            Score.Instance.Draw();
             BeginMode2D(cam2D);
             snake.Draw();
             food.Draw();

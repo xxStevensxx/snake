@@ -65,6 +65,7 @@ namespace SceneSys
         public void FoodCollider(ISnake snake, Food food)
         {
             Queue<(int x, int y)> snakeBody = snake.GetCurrentPos();
+
             (int x, int y) foodPos = food.GetFoodPos();
 
             (int x, int y) head = snakeBody.Last();
@@ -72,6 +73,7 @@ namespace SceneSys
             if ( head.x == foodPos.x && head.y == foodPos.y) {
 
                 
+                Score.Instance.addPoints(food.GetFoodType(food));
                 Animator.Instance.ShakeTimer();
                 snake.AddSegment();
                 food.RandomFood();

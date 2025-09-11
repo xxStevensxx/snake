@@ -14,7 +14,7 @@ namespace SceneSys
 
         private IScene? currentScene;
 
-        private bool isDead;
+        //private bool isDead;
 
         // Init GameState Instance
         public static GameState Instance => instance ??= new GameState();

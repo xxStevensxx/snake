@@ -14,7 +14,9 @@ namespace SceneSys
         private IGui<Button> quitButton;
         private IGui<Button> buttonsList = new ButtonList();
 
+        
         public string Name { get; set; }
+
 
         public SceneGameOver()
         {
