@@ -1,4 +1,12 @@
-🎮 Gameplay
+
+| 🎮 Gameplay |
+|-------------|
+| Vous incarnez un serpent qui lutte contre ses addictions. |
+| De manière aléatoire, une pomme fermentée apparaît : si vous la mangez, le serpent devient Drunken. |
+| Vous devez survivre aux événements qui suivent cette ingestion jusqu’à atteindre un certain nombre de points. |
+| Une fois cet objectif atteint, le Graal se présentera pour vous sevrer définitivement et mettre fin au jeu. |
+
+
 * Snake.cs
 
 Snake : représente le joueur.
