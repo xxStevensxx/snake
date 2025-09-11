@@ -14,6 +14,8 @@ namespace SceneSys
 
         private IScene? currentScene;
 
+        private bool isDead;
+
         // Init GameState Instance
         public static GameState Instance => instance ??= new GameState();
 
@@ -45,9 +47,9 @@ namespace SceneSys
             }
             if (scenes.ContainsKey(enumId))
             {
-                scenes[enumId].Show();
+                //scenes[enumId].Show();
                 currentScene = scenes[enumId];
-                
+                currentScene.Name = scenes[enumId].ToString();
 
                 Debug.WriteLine($"current scene {enumId}");
                 Debug.WriteLine($"Changement de Scene: {enumId} ");
@@ -55,15 +57,22 @@ namespace SceneSys
             }
             else
             {
-                string error = $"scene {enumId} non trouvé dans le dico";
+                string error = $"scene {enumId} non trouvé dans la liste";
                 Debug.WriteLine(error);
             }
         }
 
         public string getCurrentSceneName()
         {
-            return (currentScene?.Name ?? "No Scene").ToString();
-        }   
+            return (currentScene?.Name ?? "No Scene");
+        }
+
+        public void Restart(string name) 
+        {
+
+            currentScene?.Restart();
+
+        }
 
         public void RemoveScene()
         {
@@ -78,7 +87,6 @@ namespace SceneSys
 
         public void Update()
         {
-
             currentScene?.Update();
         }
 

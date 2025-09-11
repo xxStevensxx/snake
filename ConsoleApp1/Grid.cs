@@ -53,6 +53,12 @@ namespace SceneSys
         }
 
 
+        public (int row, int column) getGridSize()
+        {
+            return (row, column);
+        }
+
+
         public void Draw()
         {
 

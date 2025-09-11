@@ -12,7 +12,7 @@ namespace SceneSys.Interfaces
         void AddSegment() {}
         void DelSegment() {}
         void EatFood() {}
-        void GetCurrentPos() {}
+        Queue<(int x, int y)> GetCurrentPos() { return new Queue<(int x, int y)>(); }
 
     }
 }

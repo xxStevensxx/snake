@@ -14,6 +14,7 @@ namespace SceneSys
         IScene sceneGamePlay;
         IScene sceneMenu;
         IScene sceneOption;
+        IScene sceneGameOver;
         IScene currentScene;
 
         GameState gameState;
@@ -32,6 +33,7 @@ namespace SceneSys
             sceneMenu = new SceneMenu();
             sceneGamePlay = new SceneGamePlay();
             sceneOption = new SceneOption();
+            sceneGameOver = new SceneGameOver();
 
             //Singleton
             gameState = GameState.Instance;
@@ -39,6 +41,7 @@ namespace SceneSys
             gameState.RegisterScene(EnumType.Scene.Menu, sceneMenu);
             gameState.RegisterScene(EnumType.Scene.GamePlay, sceneGamePlay);
             gameState.RegisterScene(EnumType.Scene.Option, sceneOption);
+            gameState.RegisterScene(EnumType.Scene.GameOver, sceneGameOver);
             gameState.ChangeScene(EnumType.Scene.Menu);
 
 

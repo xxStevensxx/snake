@@ -12,7 +12,10 @@ namespace SceneSys
         ISnake snake;
         Food food;
         Grid grid;
+        Collider collider;
         //Vector2 mousePos;
+        Queue<(int x, int y)> snakePos;
+       
 
         public string Name { get; set; }
         
@@ -37,28 +40,40 @@ namespace SceneSys
 
         }
 
+        public void Restart() {
+            Load();
+        }
+
         public void Load() 
         {
             grid = Grid.Instance;
-            food = new Food(4, 4);
-            snake = new Snake();
+            food = new Food();
+            snake = new Snake(6, 1, 3, 5);
+            collider = new Collider(grid.getGridSize().row, grid.getGridSize().column);
         }
         public void Update() {
 
             //mousePos = GetMousePosition();
             snake.Update();
+            snakePos = snake.GetCurrentPos();
+            collider.ItSelfCollider(snakePos);
+            collider.WallCollider(snakePos.Last());
+            collider.FoodCollider(snake, food);
+            food.Update();
 
         }
 
         public void Draw()
         {
-            snake.Draw();
-            //DrawText($"Bonjour je suis le {EnumType.Scene.GamePlay}", 50, GetScreenHeight() / 2, 35, Color.Magenta);
 
-            grid.Draw();
+            Camera2D cam2D = Animator.Instance.GetCam();   
+            BeginMode2D(cam2D);
+            snake.Draw();
+            food.Draw();
+            //grid.Draw();
+            EndMode2D();
             //DrawText(mousePos.ToString(), 10, 10, 50, Color.SkyBlue);
         }
-
 
 
     }

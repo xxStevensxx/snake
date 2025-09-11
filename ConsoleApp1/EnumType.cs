@@ -10,6 +10,7 @@ namespace SceneSys
             Menu,
             GamePlay,
             Option,
+            GameOver,
         }
 
 

@@ -8,26 +8,43 @@ namespace SceneSys
     class Snake : ISnake
     {
 
-        private Queue<(int x, int y)> segments = new Queue<(int x, int y)>();
+        private Queue<(int x, int y)> body = new Queue<(int x, int y)>();
         private enum Direction {NONE, UP, DOWN, LEFT, RIGHT}
         private Direction currentDir = Direction.NONE;
-        private(int x, int y)[] snakePos;    
+        private bool sStarted { get; set; }
+        private float speed;
+        
 
-        public Snake() {
 
-            segments.Enqueue((6, 1));
-            segments.Enqueue((6, 2));
-            segments.Enqueue((6, 3));
+        public Snake(int startX, int startY, int bodySize, float speed) {
+
+            for (int segment = 0; segment < bodySize; segment++) {
+            
+                body.Enqueue((startX, startY));
+            }
+
         }
-        public Snake(Queue<(int x, int y)> segment){
 
-            this.segments = segment;
-        }
+
+        //public Snake(Queue<(int x, int y)> body)
+        //{
+
+        //    this.body = body;
+        //}
 
         public void AddSegment() {
-            segments.Enqueue((5, 5));
+
+            var head = body.Last();
+            body.Enqueue((head.x, head.y));
+
         }
-        public void DelSegment() {}
+        public void DelSegment() {
+
+            if (body.Count > 1)
+            {
+                body.Dequeue();
+            }   
+        }
 
 
         public void Dir() 
@@ -47,11 +64,17 @@ namespace SceneSys
             }
         }
 
+
+        public Queue<(int x, int y)> GetCurrentPos() {
+
+            return body;
+        }
+        
         public void Update() {
 
             Dir();
 
-            var head = segments.Last();
+            var head = body.Last();
             int newPosX = head.x;
             int newPosY = head.y;
 
@@ -59,20 +82,20 @@ namespace SceneSys
             switch (currentDir) {
 
                 case Direction.UP: newPosY -= 1; break;
-                case Direction.DOWN: newPosY += 1;break;
-                case Direction.LEFT: newPosX -= 1;break;
+                case Direction.DOWN: newPosY += 1; break;
+                case Direction.LEFT: newPosX -= 1; break;
                 case Direction.RIGHT: newPosX += 1; break;
             }
 
-            segments.Enqueue((newPosX, newPosY));
-            segments.Dequeue();
+            body.Enqueue((newPosX, newPosY));
+            body.Dequeue();
         }
 
         public void Draw() {
 
-            var head = segments.Last() ;
+            (int x, int y) head = body.Last() ;
 
-            foreach (var (row, col) in segments) {
+            foreach (var (row, col) in body) {
 
                 Color colSnake = (row, col) == head ? Color.Green : Color.DarkGreen;
 

@@ -11,6 +11,10 @@ namespace SceneSys
     {
         private int row;    
         private int col;
+        //private var head;
+        //private var segment;
+
+
         public Collider(int row, int col)
         {
             
@@ -19,23 +23,65 @@ namespace SceneSys
 
         }
 
-        public bool WallCollider((int x, int y) head) {
+        public void WallCollider((int x, int y) head) {
 
-            return head.x < 0 || head.y < 0 || head.x > row || head.y > col;
+
+            if (head.x < 0 || head.y < 0 || head.x > row || head.y > col) {
+
+
+                GameState.Instance.Restart(GameState.Instance.getCurrentSceneName());
+                GameState.Instance.ChangeScene(EnumType.Scene.GameOver);
+            }
+
+            
         }
 
-        public bool ItSelfCollider(Queue<(int x, int y)> head, Queue<(int x, int y)> body) {
+        public bool ItSelfCollider(Queue<(int x, int y)> body) {
 
-            //TODO
+
+            if (body.Count > 3)
+            {
+
+                var head = body.Last();
+                var bodyWithoutHead = body.Take(body.Count - 1);
+
+                foreach (var segment in bodyWithoutHead)
+                {
+                    if (head.x == segment.x && head.y == segment.y)
+                    {
+                    
+                        GameState.Instance.Restart(GameState.Instance.getCurrentSceneName());
+                        GameState.Instance.ChangeScene(EnumType.Scene.GameOver);
+                        
+                    }
+                }
+            }
+
             return false;
 
         }
 
 
-        public bool FoodCollider((int x, int y) head, (int x, int y) food)
+        public void FoodCollider(ISnake snake, Food food)
         {
-            return head.x == food.x && head.y == food.y;
+            Queue<(int x, int y)> snakeBody = snake.GetCurrentPos();
+            (int x, int y) foodPos = food.GetFoodPos();
+
+            (int x, int y) head = snakeBody.Last();
+
+            if ( head.x == foodPos.x && head.y == foodPos.y) {
+
+                
+                Animator.Instance.ShakeTimer();
+                snake.AddSegment();
+                food.RandomFood();
+                food.resPawnFood();
+
+            }
+;
         }
 
+
+        public void Update() { }
     }
 }
