@@ -1,8 +1,8 @@
-Gameplay
+* Gameplay
 Snake.cs
 
-Snake
-Représente le joueur. Le corps est géré avec une Queue<(int x, int y)>.
+Snake : représente le joueur.
+Le corps est géré avec une Queue<(int x, int y)>.
 
 Dir() : récupère les touches directionnelles.
 
@@ -14,8 +14,8 @@ Draw() : dessine chaque segment, la tête est en vert clair.
 
 Food.cs
 
-Food
-Objet que le serpent peut manger. Deux types possibles :
+Food : objet que le serpent peut manger.
+Deux types possibles :
 
 NORMAL (rouge)
 
@@ -29,8 +29,7 @@ Draw() : dessine la nourriture en fonction de son type.
 
 Collider.cs
 
-Collider
-Gère toutes les collisions.
+Collider : gère toutes les collisions.
 
 WallCollider : si le serpent sort de la grille → GameOver.
 
@@ -40,67 +39,60 @@ FoodCollider : si le serpent mange → ajoute des points, un segment, replace la
 
 Score.cs
 
-Score (singleton)
-Stocke et affiche le score.
+Score (singleton) : stocke et affiche le score.
 
-+10 points si la nourriture est normale.
++10 points si nourriture normale.
 
-+20 points si elle est venimeuse.
++20 points si nourriture venimeuse.
 
-UI et Scènes
+* UI et Scènes
 SceneMenu.cs
 
-SceneMenu
-Scène de menu avec des boutons.
+SceneMenu : scène de menu avec des boutons.
 
-Boutons disponibles : Play, Quitter (Options non activé).
+Boutons : Play, Quitter (Options désactivé).
 
 Update() : gère les clics et change de scène.
 
 SceneOption.cs
 
-SceneOption
-Scène d’options encore vide.
-Affiche uniquement un texte “Bonjour je suis Option”.
+SceneOption : scène d’options encore vide.
+
+Affiche uniquement un texte : “Bonjour je suis Option”.
 
 SceneGameOver.cs
 
-SceneGameOver
-Scène affichée quand la partie est perdue.
+SceneGameOver : scène affichée quand la partie est perdue.
 
 Affiche “Game Over”.
 
 Boutons : Restart, Menu, Quitter.
 
-Les clics redémarrent le jeu, reviennent au menu ou quittent.
+Les clics permettent de : redémarrer le jeu, revenir au menu ou quitter.
 
 Button.cs
 
-Button
-Représente un bouton cliquable. Contient sa position (Rectangle), son texte, sa couleur et son état.
+Button : représente un bouton cliquable. Contient : position (Rectangle), texte, couleur, état.
 
-ButtonList
-Gère une liste de boutons.
+ButtonList : gère une liste de boutons.
 
 Update() : détecte clics et survols.
 
 Draw() : dessine les boutons avec effet hover.
 
-Rendu et Effets
+* Rendu et Effets
 Animator.cs
 
-Animator (singleton)
-Gère la caméra (Camera2D).
+Animator (singleton) : gère la caméra (Camera2D).
 
 Effet actuel : Shake (tremblement via ShakeTimer()).
 
 Extension prévue : mode Drunk (rotation 180°, commandes inversées, shake renforcé).
 
-Grille et Constantes
+* Grille et Constantes
 Grid.cs
 
-Grid (singleton)
-Définit et dessine la grille de jeu (12x8 cases de 90px, espacées de 5px).
+Grid (singleton) : définit et dessine la grille (12x8 cases de 90px espacées de 5px).
 
 CellToScreen() : convertit une cellule en coordonnées écran.
 
@@ -108,8 +100,7 @@ Draw() : dessine la grille.
 
 EnumType.cs
 
-EnumType
-Contient les énumérations du jeu.
+EnumType : contient les énumérations du jeu.
 
 Scene : Menu, GamePlay, Option, GameOver.
 
@@ -119,8 +110,7 @@ FoodType : Normal, Venimous.
 
 GameConst.cs
 
-GameConst
-Constantes utilisées pour l’UI.
+GameConst : constantes pour l’UI.
 
 WIDTH_BUTTON = 300
 
@@ -128,13 +118,15 @@ HEIGHT_BUTTON = 100
 
 SPACEBETWEEN = 75
 
+‼‼ TODO
+
 Twist du gameplay : ajouter des variantes ou mécaniques originales.
 
 Affinage : améliorer la jouabilité (vitesse, collisions, transitions).
 
 Affichage : peaufiner l’UI et les effets visuels.
 
-Menu pause : permettre de mettre le jeu en pause, avec un petit “Game Feel” (fondu, freeze, overlay).
+Menu pause : permettre de mettre le jeu en pause, avec un petit Game Feel (fondu, freeze, overlay).
 
 Fluidité : remettre les FPS à 60 pour un rendu plus smooth.
 
