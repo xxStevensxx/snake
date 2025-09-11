@@ -19,9 +19,9 @@ namespace SceneSys
         public SceneMenu()
         {
 
-            playButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100),((GetScreenHeight() / 2) - 20), 200, 40), Txt = "Play", Clr = Color.Magenta };
-            optionButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100), ((GetScreenHeight() / 2) - 20) + 45, 200, 40), Txt = "Options", Clr = Color.Magenta }; 
-            quitButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100), ((GetScreenHeight() / 2) - 20) + 90, 200, 40), Txt = "Quitter", Clr = Color.Magenta};
+            playButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - GameConst.WIDTH_BUTTON / 2),((GetScreenHeight() / 2) - GameConst.HEIGHT_BUTTON / 2) - GameConst.SPACEBETWEEN, GameConst.WIDTH_BUTTON, GameConst.HEIGHT_BUTTON), Txt = "Play", Clr = Color.Magenta };
+            optionButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - GameConst.WIDTH_BUTTON / 2), ((GetScreenHeight() / 2) - GameConst.HEIGHT_BUTTON / 2) + GameConst.SPACEBETWEEN, GameConst.WIDTH_BUTTON, GameConst.HEIGHT_BUTTON), Txt = "Options", Clr = Color.Magenta }; 
+            quitButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - GameConst.WIDTH_BUTTON / 2), ((GetScreenHeight() / 2) - GameConst.HEIGHT_BUTTON / 2) + GameConst.SPACEBETWEEN * 2, GameConst.WIDTH_BUTTON, GameConst.HEIGHT_BUTTON), Txt = "Quitter", Clr = Color.Magenta};
 
             buttonsList.AddButton((Button)playButton);
             //buttonsList.AddButton((Button)optionButton);

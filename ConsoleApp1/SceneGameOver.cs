@@ -20,9 +20,9 @@ namespace SceneSys
         {
 
 
-            menuButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100), ((GetScreenHeight() / 2) - 10), 200, 40), Txt = "Menu", Clr = Color.Magenta };
-            restartButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100), ((GetScreenHeight() / 2) - 45), 200, 40), Txt = "Restart", Clr = Color.Magenta };     
-            quitButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - 100), ((GetScreenHeight() / 2) - 20) + 90, 200, 40), Txt = "Quitter", Clr = Color.Magenta };
+            menuButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - GameConst.WIDTH_BUTTON / 2), ((GetScreenHeight() / 2) - GameConst.HEIGHT_BUTTON), GameConst.WIDTH_BUTTON, GameConst.HEIGHT_BUTTON), Txt = "Menu", Clr = Color.Magenta };
+            restartButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - GameConst.WIDTH_BUTTON / 2), ((GetScreenHeight() / 2) + GameConst.SPACEBETWEEN), GameConst.WIDTH_BUTTON, GameConst.HEIGHT_BUTTON), Txt = "Restart", Clr = Color.Magenta };     
+            quitButton = new Button { Rect = new Rectangle(((GetScreenWidth() / 2) - GameConst.WIDTH_BUTTON / 2), ((GetScreenHeight() / 2) ) + GameConst.SPACEBETWEEN * 2, GameConst.WIDTH_BUTTON, GameConst.HEIGHT_BUTTON), Txt = "Quitter", Clr = Color.Magenta };
 
             buttonsList.AddButton((Button)restartButton);
             buttonsList.AddButton((Button)menuButton);
