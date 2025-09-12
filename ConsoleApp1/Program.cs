@@ -12,11 +12,10 @@ class Program()
 
         InitWindow(1200, 800, "Scene");
         SceneManager.Instance.Load();
-        SetTargetFPS(5);
+        SetTargetFPS(60);
         SetExitKey(KeyboardKey.Null);
        
 
-        
         while (!WindowShouldClose()) {
 
             BeginDrawing();

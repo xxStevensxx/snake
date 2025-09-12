@@ -2,18 +2,26 @@
 using static Raylib_cs.Raylib;
 using System.Numerics;
 using SceneSys.Interfaces;
+using System.Xml.Linq;
+using System;
 
 namespace SceneSys
 {
     class Snake : ISnake
     {
 
+        IController controller = new Controller();
+
         private Queue<(int x, int y)> body = new Queue<(int x, int y)>();
         private enum Direction {NONE, UP, DOWN, LEFT, RIGHT}
         private Direction currentDir = Direction.NONE;
-        private bool sStarted { get; set; }
-        private float speed;
+        public bool JusteAte { get; set; } = false;
+        private float ateTimer = 0f;
+        public bool Drunk { get; set; } = false;
         
+       
+
+
 
 
         public Snake(int startX, int startY, int bodySize, float speed) {
@@ -25,17 +33,12 @@ namespace SceneSys
 
         }
 
-
-        //public Snake(Queue<(int x, int y)> body)
-        //{
-
-        //    this.body = body;
-        //}
-
         public void AddSegment() {
 
             var head = body.Last();
             body.Enqueue((head.x, head.y));
+            JusteAte = true;
+            ateTimer = 0.1f; // 100ms de "grâce"
 
         }
         public void DelSegment() {
@@ -46,49 +49,19 @@ namespace SceneSys
             }   
         }
 
-
-        public void Dir() 
-        {
-
-            if (IsKeyPressed(KeyboardKey.Up) && currentDir != Direction.DOWN) {
-                currentDir = Direction.UP;
-            }
-            if (IsKeyPressed(KeyboardKey.Down) && currentDir != Direction.UP) {
-                currentDir = Direction.DOWN;
-            }
-            if (IsKeyPressed(KeyboardKey.Left) && currentDir != Direction.RIGHT) {
-                currentDir = Direction.LEFT;
-            }
-            if (IsKeyPressed(KeyboardKey.Right) && currentDir != Direction.LEFT) {
-                currentDir = Direction.RIGHT;
-            }
-        }
-
-
         public Queue<(int x, int y)> GetCurrentPos() {
 
             return body;
         }
-        
+
+
         public void Update() {
+           
+            controller.KeyDir();
+            controller.SnakeDir(this);
 
-            Dir();
-
-            var head = body.Last();
-            int newPosX = head.x;
-            int newPosY = head.y;
-
-
-            switch (currentDir) {
-
-                case Direction.UP: newPosY -= 1; break;
-                case Direction.DOWN: newPosY += 1; break;
-                case Direction.LEFT: newPosX -= 1; break;
-                case Direction.RIGHT: newPosX += 1; break;
-            }
-
-            body.Enqueue((newPosX, newPosY));
-            body.Dequeue();
+            if (ateTimer > 0f){ateTimer -= GetFrameTime();}
+            
         }
 
         public void Draw() {

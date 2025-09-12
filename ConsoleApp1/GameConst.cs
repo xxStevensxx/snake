@@ -12,6 +12,5 @@ namespace SceneSys
         public static readonly int HEIGHT_BUTTON = 100;
         public static readonly int SPACEBETWEEN = 75;
 
-
     }
 }

@@ -46,7 +46,8 @@ namespace SceneSys
                 Target = Vector2.Zero,
                 Offset = camOffset,
                 Zoom = 1f,
-                Rotation = 0f
+                Rotation = 0f,
+
             };
 
             

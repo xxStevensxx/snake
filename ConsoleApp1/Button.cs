@@ -48,11 +48,11 @@ namespace SceneSys
                 {
 
                     button.Clr = Color.Orange;
-                    Console.WriteLine("Hover"); 
+                 
                     if (IsMouseButtonPressed(MouseButton.Left)) 
                     { 
                         button.isClicked = true;
-                        Console.WriteLine("Clicked");
+                        
                     }
                 }
                 else

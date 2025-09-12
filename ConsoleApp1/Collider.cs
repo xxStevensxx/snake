@@ -36,10 +36,12 @@ namespace SceneSys
             
         }
 
-        public bool ItSelfCollider(Queue<(int x, int y)> body) {
+        public bool ItSelfCollider(ISnake snake) {
 
+            Queue<(int x, int y)> body = snake.GetCurrentPos();
+            bool justAte = snake.JusteAte;
 
-            if (body.Count > 3)
+            if (body.Count > 3 && !justAte)
             {
 
                 var head = body.Last();
@@ -49,7 +51,7 @@ namespace SceneSys
                 {
                     if (head.x == segment.x && head.y == segment.y)
                     {
-                    
+                        Console.WriteLine("je suis pas cannibal");
                         GameState.Instance.Restart(GameState.Instance.getCurrentSceneName());
                         GameState.Instance.ChangeScene(EnumType.Scene.GameOver);
                         
@@ -73,9 +75,17 @@ namespace SceneSys
             if ( head.x == foodPos.x && head.y == foodPos.y) {
 
                 
-                Score.Instance.addPoints(food.GetFoodType(food));
-                Animator.Instance.ShakeTimer();
                 snake.AddSegment();
+                Score.Instance.addPoints(food.GetFoodType(food));
+
+                if (food.GetFoodType(food) == EnumType.FoodType.VENIMOUS)
+                {
+                    snake.Drunk = true;
+                }
+                else {
+                      snake.Drunk = false;
+                }
+                Animator.Instance.ShakeTimer();
                 food.RandomFood();
                 food.resPawnFood();
 

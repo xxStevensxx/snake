@@ -15,7 +15,8 @@ namespace SceneSys
         Collider collider;
         //Vector2 mousePos;
         Queue<(int x, int y)> snakePos;
-       
+        Camera2D cam2D;
+
 
         public string Name { get; set; }
         
@@ -47,6 +48,7 @@ namespace SceneSys
 
         public void Load() 
         {
+            
             grid = Grid.Instance;
             food = new Food();
             snake = new Snake(6, 1, 3, 5);
@@ -57,7 +59,7 @@ namespace SceneSys
             //mousePos = GetMousePosition();
             snake.Update();
             snakePos = snake.GetCurrentPos();
-            collider.ItSelfCollider(snakePos);
+            collider.ItSelfCollider(snake);
             collider.WallCollider(snakePos.Last());
             collider.FoodCollider(snake, food);
             food.Update();
@@ -67,12 +69,12 @@ namespace SceneSys
         public void Draw()
         {
 
-            Camera2D cam2D = Animator.Instance.GetCam();   
+            cam2D = Animator.Instance.GetCam();   
             Score.Instance.Draw();
             BeginMode2D(cam2D);
             snake.Draw();
             food.Draw();
-            //grid.Draw();
+            grid.Draw();
             EndMode2D();
             //DrawText(mousePos.ToString(), 10, 10, 50, Color.SkyBlue);
         }
