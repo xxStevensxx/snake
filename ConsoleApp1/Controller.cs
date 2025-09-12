@@ -32,6 +32,28 @@ namespace SceneSys
             }
         }
 
+        public void RevertDir()
+        {
+            switch (currentDir)
+            {
+                case Direction.UP:
+                    currentDir = Direction.DOWN;
+                    break;
+                case Direction.DOWN:
+                    currentDir = Direction.UP;
+                    break;
+                case Direction.LEFT:
+                    currentDir = Direction.RIGHT;
+                    break;
+                case Direction.RIGHT:
+                    currentDir = Direction.LEFT;
+                    break;
+                case Direction.NONE:
+                    
+                    break;
+            }
+        }
+
         public void SnakeDir(Snake snake) 
         {
 

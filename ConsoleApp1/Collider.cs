@@ -85,6 +85,7 @@ namespace SceneSys
                 else {
                       snake.Drunk = false;
                 }
+
                 Animator.Instance.ShakeTimer();
                 food.RandomFood();
                 food.resPawnFood();

@@ -10,6 +10,9 @@ namespace SceneSys.Interfaces
     {
         void KeyDir() { }
         void SnakeDir(Snake snake) { }
+
+        void RevertDir() { }
     }
+
 }
 

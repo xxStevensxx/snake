@@ -38,7 +38,7 @@ namespace SceneSys
             var head = body.Last();
             body.Enqueue((head.x, head.y));
             JusteAte = true;
-            ateTimer = 0.1f; // 100ms de "grâce"
+            ateTimer = 0.5f; // 100ms de "grâce"
 
         }
         public void DelSegment() {
@@ -59,6 +59,12 @@ namespace SceneSys
            
             controller.KeyDir();
             controller.SnakeDir(this);
+
+            if (this.Drunk)
+            {
+                controller.RevertDir(); 
+            }
+
 
             if (ateTimer > 0f){ateTimer -= GetFrameTime();}
             
